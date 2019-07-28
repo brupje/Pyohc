@@ -3,8 +3,8 @@ This module generates charts based on OpenHab items data using Mysql and Python.
 
 Tested with OpenHAB 2.4 on Openhabian
 
-(images/eyecandy1.png)
-(images/eyecandy2.png)
+[Multi-series power production](images/eyecandy1.png)
+[Multi-series power production with month average](images/eyecandy2.png)
 
 ## Requirements
 1. An OpenHAB installation with Mysql Persistence enabled
