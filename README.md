@@ -4,36 +4,44 @@ This module generates charts based on OpenHab items data using Mysql and Python.
 Tested with OpenHAB 2.4 on Openhabian
 
 [Multi-series power production](images/eyecandy1.png)
+
 [Multi-series power production with month average](images/eyecandy2.png)
 
 ## Requirements
 1. An OpenHAB installation with Mysql Persistence enabled
 2. Python 3.5 with numpy, math, time
 3. pygal http://pygal.org,
-
+```
 pip3 install pygal cairosvg
-
+```
 4. Mysql connector for Python
 
+```
 apt-get install python3-mysql.connector
+```
 
 5. Cairo for rendering SVG to PNG 
+```
 apt-get install libcairo2 libopenjp2
-
+``` 
 ## Installation
 
 Extract this library onto the filesystem of the OpenHAB installation, for example in the userdata folder. Write a python file that generates the charts and execute using
-
+```
 /usr/bin/python3 /srv/openhab2-userdata/example.py
-
+```
 You can create a cronjob to generate charts regularly:
 
+```
 0 * * * * /usr/bin/python3 /srv/openhab2-userdata/charts_hourly.py
 0 0 * * * /usr/bin/python3 /srv/openhab2-userdata/charts_daily.py
+```
 
 The images should be stored in the static files folder of OpenHAB, /etc/openhab2/html/ on Openhabian. To use the images in a sitemap add this to the sitemap:
 
+```
 Image url="http://<>/static/output.png"
+```
 
 ## Documentation
 Find examples in the examples folder. These should teach you the basics. For information on the chart modules go to http://pygal.org/en/stable/documentation/index.html
