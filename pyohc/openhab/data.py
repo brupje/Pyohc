@@ -77,7 +77,7 @@ class db:
       group_expr = "date_format(timecol, '%Y%m')"  
       
         
-    basequery = "select round(val,1) val,lab \
+    basequery = "select round(val,1) colval,lab \
       from (\
        select "+group_expr+" lab, " + column + " val " + basequery + "\
        group by lab\
@@ -89,6 +89,7 @@ class db:
     try:
       cursor.execute( basequery )   
       print(basequery)
+
       return list(cursor.fetchall()) 
     except mysql.connector.Error as err:
       raise Exception("Error executing query\n{}\n{}".format(basequery,err));
@@ -102,7 +103,7 @@ class db:
       if i in tempdict:
         retval.append(tempdict[i])  
       else:
-        retval.append(None)  
+        retval.append(0)  
         
     return retval
    
