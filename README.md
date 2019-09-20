@@ -24,6 +24,12 @@ apt-get install python3-mysql.connector
 ```
 apt-get install libcairo2 libopenjp2
 ``` 
+
+6. You probably want to load timezones into the MySQL database:
+```
+mysql_tzinfo_to_sql /usr/share/zoneinfo/ | mysql -u root mysql
+```
+
 ## Installation
 
 Extract this library onto the filesystem of the OpenHAB installation, for example in the userdata folder. Write a python file that generates the charts and execute using
